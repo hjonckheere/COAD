@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indicateurs Marketing & Ventes - Détail des Performances - Dashboard MAEVH">
+    <title>Marketing & Ventes - Dashboard MAEVH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles personnalisés pour la mise en page */
+        .dashboard {
+            padding: 2em;
+            background-color: #f8f9fa;
+        }
+        
+        .btn-connexion {
+            background-color: #1abc9c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .overview {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        /* Disposition des cartes avec CSS Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Disposition sur deux colonnes */
+            gap: 40px; /* Espace entre les cartes */
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1800px; /* Largeur maximale pour les cartes */
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 2em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: 650px; /* Augmenter la hauteur */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%; /* Prendre toute la largeur de la colonne */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.6em;
+            margin-bottom: 1em;
+        }
+
+        /* Taille des graphiques dans les cartes */
+        .chart {
+            flex: 1;
+            height: 100%;
+        }
+
+        .card canvas {
+            width: 100% !important;
+            height: 90% !important; /* Remplir 90% de la hauteur disponible */
+        }
+
+        /* Conteneur des graphiques détaillés */
+        .details {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2em;
+            margin-top: 2em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Disposition en grille pour les graphiques détaillés */
+        .performance-charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les graphiques */
+            gap: 40px;
+            margin-top: 2em;
+            max-width: 1800px; /* Largeur maximale augmentée */
+            margin: 0 auto;
+        }
+
+        /* Taille des graphiques dans la section détaillée */
+        .chart-detailed {
+            height: 550px; /* Hauteur augmentée pour les graphiques détaillés */
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Empêche le débordement */
+        }
+
+        /* Réduction de la taille du dernier graphique */
+        .chart-detailed.pie-chart-container {
+            height: 450px; /* Hauteur spécifique pour le dernier graphique */
+        }
+
+        .pie-chart-container canvas {
+            width: 80% !important; /* Réduire la largeur à 80% du conteneur */
+            height: auto !important; /* Ajuster automatiquement la hauteur */
+            max-width: 350px; /* Limiter la taille maximale */
+            max-height: 350px;
+            margin: 0 auto; /* Centrer le graphique dans le conteneur */
+        }
+
+        /* Responsivité : affichage en une colonne sur les petits écrans */
+        @media screen and (max-width: 1024px) {
+            .cards {
+                grid-template-columns: 1fr; /* Affiche chaque carte en une seule colonne */
+            }
+
+            .performance-charts {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-detailed {
+                height: auto; /* Ajuste la hauteur pour les petits écrans */
+                padding: 1em;
+            }
+
+            .pie-chart-container canvas {
+                max-width: 300px; /* Réduire la taille maximale */
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Tableau de Bord MAEVH - Marketing & Ventes</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="dashboard.html">Accueil</a></li>
+                <li><a href="financier.html">Indicateurs Financiers</a></li>
+                <li><a href="processus.html">Processus Internes</a></li>
+                <li><a href="rh.html">Ressources Humaines</a></li>
+                <li><a href="marketing.html" class="active">Marketing & Ventes</a></li>
+                <li><a href="index.html" class="btn-connexion">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <!-- Vue d'ensemble des indicateurs Marketing & Ventes -->
+        <section class="overview">
+            <h2>Vue d'Ensemble des Indicateurs Marketing & Ventes</h2>
+            <p>Cette section présente un aperçu général des indicateurs Marketing & Ventes, y compris le volume de ventes, le taux de conversion et la satisfaction client.</p>
+            <div class="cards">
+                <!-- Carte 1 : Volume de Ventes -->
+                <div class="card card-marketing">
+                    <h3>Volume de Ventes</h3>
+                    <div class="chart">
+                        <canvas id="salesVolumeChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Taux de Conversion -->
+                <div class="card card-marketing">
+                    <h3>Taux de Conversion</h3>
+                    <div class="chart">
+                        <canvas id="conversionRateChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Carte 3 : Satisfaction Client -->
+                <div class="card card-marketing">
+                    <h3>Satisfaction Client</h3>
+                    <div class="chart">
+                        <canvas id="customerSatisfactionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Détail des Performances Marketing -->
+        <section class="details">
+            <h2>Détail des Performances Marketing & Ventes</h2>
+            <p>
+                Cette section fournit une vue plus détaillée des principaux indicateurs Marketing & Ventes. Elle permet d'analyser l'évolution des ventes, 
+                la répartition des ventes par canal, ainsi que la satisfaction client et le taux de conversion par canal.
+            </p>
+            <div class="performance-charts">
+                <!-- Graphique : Évolution des Ventes -->
+                <div class="chart-detailed">
+                    <h4>Évolution des Ventes</h4>
+                    <canvas id="salesEvolutionChart"></canvas>
+                </div>
+
+                <!-- Graphique : Répartition des Canaux de Vente -->
+                <div class="chart-detailed">
+                    <h4>Répartition des Canaux de Vente</h4>
+                    <canvas id="salesChannelsChart"></canvas>
+                </div>
+
+                <!-- Graphique : Taux de Conversion par Canal -->
+                <div class="chart-detailed">
+                    <h4>Taux de Conversion par Canal</h4>
+                    <canvas id="conversionByChannelChart"></canvas>
+                </div>
+
+                <!-- Graphique : Répartition des Clients Satisfaits -->
+                <div class="chart-detailed pie-chart-container">
+                    <h4>Répartition des Clients Satisfaits</h4>
+                    <canvas id="customerSatisfactionBreakdownChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tableau de Bord MAEVH. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialisation des graphiques pour la page marketing.html
+        const salesVolumeCtx = document.getElementById('salesVolumeChart').getContext('2d');
+        new Chart(salesVolumeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Volume de Ventes (€)',
+                    data: [50000, 75000, 65000, 90000],
+                    backgroundColor: '#3498db'
+                }]
+            }
+        });
+
+        const conversionRateCtx = document.getElementById('conversionRateChart').getContext('2d');
+        new Chart(conversionRateCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Taux de Conversion (%)',
+                    data: [5, 5.5, 6, 6.5, 7],
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+
+        const satisfactionCtx = document.getElementById('customerSatisfactionChart').getContext('2d');
+        new Chart(satisfactionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Très Satisfait', 'Satisfait', 'Peu Satisfait'],
+                datasets: [{
+                    label: 'Satisfaction Client',
+                    data: [60, 30, 10],
+                    backgroundColor: ['#2ecc71', '#3498db', '#e74c3c']
+                }]
+            }
+        });
+
+        const salesEvolutionCtx = document.getElementById('salesEvolutionChart').getContext('2d');
+        new Chart(salesEvolutionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+                datasets: [{
+                    label: 'Évolution des Ventes (€)',
+                    data: [4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+
+        const salesChannelsCtx = document.getElementById('salesChannelsChart').getContext('2d');
+        new Chart(salesChannelsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['En Ligne', 'Magasin', 'Distributeurs'],
+                datasets: [{
+                    label: 'Répartition des Canaux de Vente',
+                    data: [50, 30, 20],
+                    backgroundColor: ['#3498db', '#e74c3c', '#2ecc71']
+                }]
+            }
+        });
+
+        const conversionByChannelCtx = document.getElementById('conversionByChannelChart').getContext('2d');
+        new Chart(conversionByChannelCtx, {
+            type: 'bar',
+            data: {
+                labels: ['En Ligne', 'Magasin', 'Distributeurs'],
+                datasets: [{
+                    label: 'Taux de Conversion (%)',
+                    data: [8, 5, 4],
+                    backgroundColor: ['#1abc9c', '#e74c3c', '#3498db']
+                }]
+            }
+        });
+
+        const customerSatisfactionBreakdownCtx = document.getElementById('customerSatisfactionBreakdownChart').getContext('2d');
+        new Chart(customerSatisfactionBreakdownCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Très Satisfait', 'Satisfait', 'Peu Satisfait'],
+                datasets: [{
+                    label: 'Satisfaction Client (%)',
+                    data: [60, 30, 10],
+                    backgroundColor: ['#2ecc71', '#3498db', '#e74c3c']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, /* Assure que le graphique s'ajuste correctement */
+            }
+        });
+    </script>
+</body>
+</html>

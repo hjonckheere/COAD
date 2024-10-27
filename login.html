@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page de Connexion - Solution MAEVH">
+    <title>Connexion - Solution MAEVH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles personnalisés pour la page de connexion */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #3498db;
+            width: 100%;
+            padding: 1em;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .login-container {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 3em 4em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 1em;
+            color: #2c3e50;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border 0.2s;
+        }
+
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .btn-login {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #1abc9c;
+        }
+
+        .forgot-password {
+            margin-top: 1em;
+        }
+
+        .forgot-password a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            color: #7f8c8d;
+        }
+
+        /* Responsive design pour petits écrans */
+        @media screen and (max-width: 768px) {
+            .login-container {
+                width: 90%;
+                padding: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page de connexion -->
+    <header>
+        <h1>Solution MAEVH</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Conteneur de Connexion -->
+    <div class="login-container">
+        <h2>Connexion à votre Compte</h2>
+        <form action="dashboard.html" method="post">
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+            </div>
+            <button type="submit" class="btn-login">Se Connecter</button>
+        </form>
+        <div class="forgot-password">
+            <p><a href="#">Mot de passe oublié ?</a></p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Solution MAEVH. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

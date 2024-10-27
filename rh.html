@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indicateurs des Ressources Humaines - Détail des Performances - Dashboard MAEVH">
+    <title>Ressources Humaines - Dashboard MAEVH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles personnalisés pour la mise en page */
+        .dashboard {
+            padding: 2em;
+            background-color: #f8f9fa;
+        }
+
+        .btn-connexion {
+            background-color: #1abc9c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        
+        .overview {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        /* Disposition des cartes avec CSS Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Augmentation de la taille des colonnes */
+            gap: 40px; /* Espace entre les cartes */
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1800px; /* Largeur maximale augmentée */
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 2em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: 650px; /* Augmenter la hauteur */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%; /* Prend toute la largeur disponible */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.6em;
+            margin-bottom: 1em;
+        }
+
+        /* Taille des graphiques dans les cartes */
+        .chart {
+            flex: 1;
+            height: 100%;
+        }
+
+        .card canvas {
+            width: 100% !important;
+            height: 90% !important; /* Remplit 90% de la hauteur disponible */
+        }
+
+        /* Conteneur des graphiques détaillés */
+        .details {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2em;
+            margin-top: 2em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Disposition en grille pour les graphiques détaillés */
+        .performance-charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les graphiques */
+            gap: 40px;
+            margin-top: 2em;
+            max-width: 1800px; /* Largeur maximale augmentée */
+            margin: 0 auto; /* Centrer les graphiques */
+        }
+
+        /* Taille des graphiques dans la section détaillée */
+        .chart-detailed {
+            height: 550px; /* Hauteur augmentée pour les graphiques détaillés */
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Empêche le débordement */
+        }
+
+        /* Réduction de la taille du dernier graphique */
+        .chart-detailed.pie-chart-container {
+            height: 450px; /* Hauteur spécifique pour le dernier graphique */
+        }
+
+        .pie-chart-container canvas {
+            width: 80% !important; /* Réduire la largeur à 80% du conteneur */
+            height: auto !important; /* Ajuster automatiquement la hauteur */
+            max-width: 350px; /* Limiter la taille maximale */
+            max-height: 350px;
+            margin: 0 auto; /* Centrer le graphique dans le conteneur */
+        }
+
+        /* Responsivité : affichage en une colonne sur les petits écrans */
+        @media screen and (max-width: 1024px) {
+            .cards {
+                grid-template-columns: 1fr; /* Affiche chaque carte en une seule colonne */
+            }
+
+            .performance-charts {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-detailed {
+                height: auto; /* Ajuste la hauteur pour les petits écrans */
+                padding: 1em;
+            }
+
+            .pie-chart-container canvas {
+                max-width: 300px; /* Réduire la taille maximale */
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Tableau de Bord MAEVH - Ressources Humaines</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="dashboard.html">Accueil</a></li>
+                <li><a href="financier.html">Indicateurs Financiers</a></li>
+                <li><a href="processus.html">Processus Internes</a></li>
+                <li><a href="rh.html" class="active">Ressources Humaines</a></li>
+                <li><a href="marketing.html">Marketing & Ventes</a></li>
+                <li><a href="index.html" class="btn-connexion">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <!-- Vue d'ensemble des indicateurs RH -->
+        <section class="overview">
+            <h2>Vue d'Ensemble des Indicateurs RH</h2>
+            <p>Cette section présente un aperçu général des indicateurs RH, y compris les effectifs, le taux d'absentéisme et la rotation du personnel.</p>
+            <div class="cards">
+                <!-- Carte 1 : Effectif Total -->
+                <div class="card card-hr">
+                    <h3>Effectif Total</h3>
+                    <div class="chart">
+                        <canvas id="totalStaffChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Taux d'Absentéisme -->
+                <div class="card card-hr">
+                    <h3>Taux d'Absentéisme</h3>
+                    <div class="chart">
+                        <canvas id="absenteeismRateChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Carte 3 : Rotation du Personnel -->
+                <div class="card card-hr">
+                    <h3>Rotation du Personnel</h3>
+                    <div class="chart">
+                        <canvas id="staffTurnoverChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Détail des Performances RH -->
+        <section class="details">
+            <h2>Détail des Performances RH</h2>
+            <p>
+                Cette section fournit une vue plus détaillée des principaux indicateurs RH. Elle permet d'analyser l'évolution des effectifs, 
+                le taux d'absentéisme par département, ainsi que la répartition des compétences et des postes au sein de l'entreprise.
+            </p>
+            <div class="performance-charts">
+                <!-- Graphique : Évolution de l'Effectif -->
+                <div class="chart-detailed">
+                    <h4>Évolution de l'Effectif</h4>
+                    <canvas id="staffEvolutionChart"></canvas>
+                </div>
+
+                <!-- Graphique : Taux d'Absentéisme par Département -->
+                <div class="chart-detailed">
+                    <h4>Taux d'Absentéisme par Département</h4>
+                    <canvas id="absenteeismDepartmentChart"></canvas>
+                </div>
+
+                <!-- Graphique : Répartition des Compétences -->
+                <div class="chart-detailed">
+                    <h4>Répartition des Compétences</h4>
+                    <canvas id="skillsDistributionChart"></canvas>
+                </div>
+
+                <!-- Graphique : Répartition des Postes -->
+                <div class="chart-detailed pie-chart-container">
+                    <h4>Répartition des Postes</h4>
+                    <canvas id="positionDistributionChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tableau de Bord MAEVH. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialisation des graphiques pour la page rh.html
+        const totalStaffCtx = document.getElementById('totalStaffChart').getContext('2d');
+        new Chart(totalStaffCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Effectif Total (employés)',
+                    data: [200, 210, 220, 230, 250],
+                    backgroundColor: '#3498db'
+                }]
+            }
+        });
+
+        const absenteeismCtx = document.getElementById('absenteeismRateChart').getContext('2d');
+        new Chart(absenteeismCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Taux d\'Absentéisme (%)',
+                    data: [5, 4.5, 4, 3.5, 3],
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+
+        const turnoverCtx = document.getElementById('staffTurnoverChart').getContext('2d');
+        new Chart(turnoverCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Taux de Rotation (%)',
+                    data: [10, 12, 8, 15, 9],
+                    backgroundColor: '#f1c40f'
+                }]
+            }
+        });
+
+        const staffEvolutionCtx = document.getElementById('staffEvolutionChart').getContext('2d');
+        new Chart(staffEvolutionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+                datasets: [{
+                    label: 'Évolution de l\'Effectif (employés)',
+                    data: [200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255],
+                    borderColor: '#2ecc71',
+                    backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+
+        const absenteeismDepartmentCtx = document.getElementById('absenteeismDepartmentChart').getContext('2d');
+        new Chart(absenteeismDepartmentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Finance', 'R&D', 'Marketing', 'Ventes', 'Support'],
+                datasets: [{
+                    label: 'Taux d\'Absentéisme par Département (%)',
+                    data: [4, 3.5, 3.8, 4.2, 3],
+                    backgroundColor: ['#3498db', '#1abc9c', '#e74c3c', '#f1c40f', '#8e44ad']
+                }]
+            }
+        });
+
+        const skillsDistributionCtx = document.getElementById('skillsDistributionChart').getContext('2d');
+        new Chart(skillsDistributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Techniques', 'Commerciales', 'Management', 'Support'],
+                datasets: [{
+                    label: 'Répartition des Compétences (%)',
+                    data: [40, 25, 20, 15],
+                    backgroundColor: ['#3498db', '#1abc9c', '#f1c40f', '#e74c3c']
+                }]
+            }
+        });
+
+        const positionDistributionCtx = document.getElementById('positionDistributionChart').getContext('2d');
+        new Chart(positionDistributionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Cadres', 'Techniciens', 'Employés'],
+                datasets: [{
+                    label: 'Répartition des Postes (%)',
+                    data: [30, 40, 30],
+                    backgroundColor: ['#3498db', '#e74c3c', '#2ecc71']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, /* Assure que le graphique s'ajuste correctement */
+            }
+        });
+    </script>
+</body>
+</html>

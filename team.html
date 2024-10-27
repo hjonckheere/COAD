@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Présentation de l'équipe COAD - Consultants en Outils d'Aide à la Décision.">
+    <title>Qui sommes-nous ? - COAD</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 1px;
+        }
+
+        header nav {
+            margin-top: 15px;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        header nav a:hover {
+            background-color: #1abc9c;
+            border-radius: 5px;
+        }
+
+        .section {
+            padding: 2em;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            margin-bottom: 1em;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        /* Présentation des membres de l'équipe */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Deux colonnes */
+            gap: 40px; /* Espacement entre les éléments */
+            align-items: center;
+            justify-items: center;
+            margin-top: 2em;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2em;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Assure la même taille pour les deux membres */
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Animation au survol */
+        }
+
+        .team-member img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .team-member h4 {
+            font-size: 1.3em;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            font-size: 1.1em;
+            color: #34495e;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .expertise-list {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .expertise-list li {
+            font-size: 1.1em;
+            color: #2980b9;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header>
+        <h1>COAD - Qui sommes-nous ?</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="consultant.html">Un consultant? Pourquoi?</a>
+            <a href="solution.html">Notre Solution</a>
+            <a href="expertises.html">Expertises</a>
+            <a href="tarification.html">Tarification</a>
+            <a href="team.html">Qui sommes-nous</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Section de présentation générale -->
+    <section class="section" id="presentation">
+        <h2>Notre Vision</h2>
+        <p>
+            Chez COAD, nous sommes des experts en outils d'aide à la décision, avec une expérience étendue dans plusieurs secteurs comme le 
+            pharmaceutique, la technologie, et les services. Notre équipe vous accompagne dans la transformation digitale de vos processus 
+            internes et dans l'optimisation de vos performances grâce à des outils innovants. 
+        </p>
+    </section>
+
+    <!-- Section Présentation de l'équipe -->
+    <section class="section" id="team">
+        <h2>Rencontrez nos Experts</h2>
+        <div class="team-grid">
+            <!-- Premier membre de l'équipe : Henri Jonckheere -->
+            <div class="team-member">
+                <img src="images/henri.png" alt="Photo de Henri Jonckheere">
+                <h3>Henri Jonckheere</h3>
+                <h4>CTO - Directeur Technique</h4>
+                <p>
+                    Henri Jonckheere, CTO de COAD, possède plus de 30 ans d’expérience dans la gestion des systèmes d'information et la transformation numérique 
+                    des entreprises. En tant que leader stratégique, il supervise les équipes techniques tout en guidant le développement de solutions innovantes 
+                    en intelligence artificielle (AI) et en gestion d’infrastructures IT complexes.
+                </p>
+                <h4>Expertises</h4>
+                <ul class="expertise-list">
+                    <li>Intelligence artificielle (AI)</li>
+                    <li>Gestion des infrastructures IT</li>
+                    <li>Développement d'architectures cloud</li>
+                    <li>Sécurité informatique</li>
+                    <li>Gestion de projet</li>
+                    <li>Développement d'applications backend et frontend</li>
+                    <li>Leadership technique</li>
+                    <li>Transformation numérique</li>
+                </ul>
+            </div>
+
+            <!-- Second membre de l'équipe : Francis Denis -->
+            <div class="team-member">
+                <img src="images/francis.png" alt="Photo de Francis Denis">
+                <h3>Francis Denis</h3>
+                <h4>Management Consultant</h4>
+                <p>
+                    Francis Denis, Management Consultant, possède plus de 35 ans d’expérience en tant que MD, DAF, DRH, Dir. Commercial au niveau européen 
+                    dans diverses sociétés allant de la PME à la multinationale. En tant que leader stratégique, il vous accompagne dans la mise en place 
+                    de vos outils décisionnels et vous conseille dans les domaines financiers, organisationnels, optimisation et développement du personnel.
+                </p>
+                <h4>Expertises</h4>
+                <ul class="expertise-list">
+                    <li>Plans stratégiques et financiers</li>
+                    <li>Contrôle de gestion</li>
+                    <li>Optimisation organisationnelle</li>
+                    <li>Optimisation des coûts</li>
+                    <li>Gestion innovante du personnel (plans de bonus, succession planning,…)</li>
+                    <li>Gestion de projets</li>
+                    <li>Coaching</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 COAD. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

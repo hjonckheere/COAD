@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tarification de la Solution COAD - Options de Tarification et Offres.">
+    <title>Tarification - Solution COAD</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles personnalisés pour la page de tarification */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 1px;
+        }
+
+        header nav {
+            margin-top: 15px;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        header nav a:hover {
+            background-color: #1abc9c;
+            border-radius: 5px;
+        }
+
+        .section {
+            padding: 3em;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-bottom: 1.5em;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .section p {
+            font-size: 1.3em;
+            margin: 0 auto;
+            max-width: 800px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2em;
+        }
+
+        .pricing-plan {
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            width: 30%;
+            margin: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: #1abc9c;
+        }
+
+        .pricing-plan h3 {
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            color: #2c3e50;
+        }
+
+        .pricing-plan p {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+
+        .pricing-plan .price {
+            font-size: 2.2em;
+            color: #e74c3c;
+        }
+
+        .pricing-plan ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .pricing-plan ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pricing-plan ul li:last-child {
+            border-bottom: none;
+        }
+
+        .btn-back, .btn-contact {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover, .btn-contact:hover {
+            background-color: #1abc9c;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header>
+        <h1>Tarification de la Solution COAD</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="consultant.html">Un consultant? Pourquoi?</a>
+            <a href="solution.html">Notre Solution</a>
+            <a href="expertises.html">Expertises</a>
+            <a href="tarification.html">Tarification</a>
+            <a href="team.html">Qui sommes-nous</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Section de tarification principale -->
+    <section class="section">
+        <h2>Notre solution : Analyse et mise en place du tableau de bord</h2>
+
+        <div class="pricing">
+            <div class="pricing-plan">
+                <h3>Pour PME</h3>
+                <ul>
+                    <li>Audit de l’entreprise (max. 1 semaine)</li>
+                    <li>Rapport détaillé et recommandations</li>
+                    <li>Accord sur les indicateurs clés (KPIs)</li>
+                    <li>Développement du tableau de bord (Excel)</li>
+                    <li>Personnalisation du tableau de bord (Excel)</li>
+                    <li>Formation initiale</li>
+                </ul>
+                <p class="price">€8,000 - €12,000 HTVA</p>
+                <p>(en fonction de la taille de l’entreprise)</p>
+            </div>
+
+            <div class="pricing-plan">
+                <h3>Pour TPE</h3>
+                <ul>
+                    <li>Audit de l’entreprise (1 jour)</li>
+                    <li>Rapport détaillé et recommandations</li>
+                    <li>Accord sur les indicateurs clés (KPIs)</li>
+                    <li>Développement du tableau de bord (Excel)</li>
+                    <li>Personnalisation du tableau de bord (Excel)</li>
+                </ul>
+                <p class="price">€2,500 HTVA</p>
+            </div>
+        </div>
+
+        <!-- Section 2 : Développement automatisé -->
+        <h2>Développement d’un tableau de bord automatisé</h2>
+        <div class="pricing">
+            <div class="pricing-plan">
+                <h3>Intégration à Team Leader</h3>
+                <ul>
+                    <li>Développement informatique pour lier le tableau de bord</li>
+                    <li>Connexion à toutes les autres solutions informatiques utilisées</li>
+                </ul>
+                <p class="price">Forfait à discuter après analyse</p>
+            </div>
+        </div>
+
+        <!-- Section 3 : Services complémentaires -->
+        <h2>Services complémentaires de consultance</h2>
+        <div class="pricing">
+            <div class="pricing-plan">
+                <h3>Consultance</h3>
+                <ul>
+                    <li>Journée de consultance</li>
+                </ul>
+                <p class="price">€800 HTVA / jour</p>
+                <p>Remises disponibles sur gros volumes</p>
+            </div>
+        </div>
+
+        <!-- Boutons de navigation -->
+        <div>
+            <a href="index.html" class="btn-back">Revenir à l'Accueil</a>
+            <a href="contact.html" class="btn-contact">Contactez-nous</a>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Solution COAD. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
