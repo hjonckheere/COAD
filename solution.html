@@ -45,17 +45,6 @@
             background-color: #1abc9c;
             border-radius: 5px;
         }
-        
-            .left-align {
-            text-align: left;
-            padding-left: 20px;
-            list-style-type: disc;
-        }
-
-            .dashboard-item ul.left-align {
-            margin: 0;
-            padding-left: 1.5em; /* Aligns bullets with text */
-        }
 
         .section {
             padding: 3em;
@@ -84,100 +73,63 @@
             background-color: #ecf0f1;
         }
 
+        /* Puzzle image styling */
         .puzzle-container img, .dashboard-grid img {
-            width: 750px; /* Set width to 500px for both images */
+            width: 750px;
             max-width: 100%;
             margin: 0 auto;
             display: block;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+        .highlight-section {
+            text-align: left;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .dashboard-item {
-            padding: 2em;
-            background: #fff;
-            border: 2px solid #3498db;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .dashboard-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-        }
-
-        .dashboard-item h3 {
-            color: #2c3e50;
+        .highlight-section h3 {
+            color: #3498db;
             font-size: 1.8em;
             margin-bottom: 15px;
         }
 
-        .dashboard-item p {
-            color: #34495e;
-            font-size: 1.2em;
+        .centered-list {
+            font-size: 1.3em;
+            padding-right: 10%;
+            list-style-type: disc;
+            text-align: left;
+            margin-left: 15%;
+            color: #2c3e50;
         }
 
-        .dashboard-icon {
-            font-size: 2.5em;
-            color: #3498db;
-            margin-bottom: 15px;
+        .centered-list li {
+            margin-bottom: 10px;
         }
 
-        .dashboard-icon:hover {
-            color: #1abc9c;
+        /* Additional styling */
+        .diagram-container {
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            background-color: #f0f8ff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            text-align: center;
         }
 
-    /* Flexbox wrapper to center the scaled container */
-    .center-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        overflow: hidden; /* Prevents overflow from scaling */
-    }
+        .mermaid {
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+        }
 
-    /* Wrapper to keep the container centered and responsive */
-    .center-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        overflow: auto; /* Allow scaling to exceed screen size if needed */
-    }
-
-    /* Diagram container styling with centered scaling */
-    .diagram-container {
-        padding: 20px;
-        border: 2px solid #3498db;
-        border-radius: 12px;
-        background-color: #f0f8ff;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        width: 100%;
-        max-width: 1200px;
-        height: auto;
-        text-align: center;
-    }
-
-    /* Scale wrapper to increase diagram size */
-    .diagram-scale-wrapper {
-        display: inline-block;
-        transform: scale(2); /* Set to twice the original size */
-        transform-origin: top left; /* Ensures scaling from the top-left corner */
-    }
-
-    /* Mermaid styling to adjust text size */
-    .mermaid {
-        font-family: Arial, sans-serif;
-        font-size: 1em; /* Set font size for scaled text */
-    }
-       footer {
+        footer {
             background: #2c3e50;
             color: #fff;
             padding: 1.5em 0;
@@ -188,16 +140,13 @@
             margin: 0;
             font-size: 1em;
         }
-
     </style>
-    <!-- Script Mermaid -->
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.2.4/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: true });
     </script>
 </head>
 <body>
-    <!-- En-tête -->
     <header>
         <h1>Notre Solution</h1>
         <nav>
@@ -211,7 +160,7 @@
         </nav>
     </header>
 
-    <!-- Section 1 : Pourquoi faire appel à des consultants ? -->
+    <!-- Section 1 -->
     <section class="section">
         <h2>Pourquoi faire appel à des consultants est vital</h2>
         <p>
@@ -222,7 +171,7 @@
         </p>
     </section>
 
-    <!-- Section 2 : Puzzle d'entreprise -->
+    <!-- Section 2 -->
     <section class="section">
         <h2>Toute entreprise peut être représentée par un puzzle</h2>
         <div class="puzzle-container">
@@ -230,88 +179,60 @@
         </div>
     </section>
 
-    <!-- Section 3 : Notre Valeur Ajoutée -->
+    <!-- Section 3 -->
     <section class="section section-alt">
         <h2>Notre Valeur Ajoutée : gérer le puzzle</h2>
         <p>
             Toute société a besoin d’un guidage pour assurer sa performance. Les éléments clés qui déterminent la création de valeur, la stratégie et la croissance doivent être compris et analysés :
         </p>
-        <div class="highlight-section">
-            <ul>
-                <li><strong>Les objectifs financiers et commerciaux</strong> : Identifier les cibles et objectifs pour assurer une croissance durable.</li>
-                <li><strong>Les ressources nécessaires</strong> : Analyser les ressources disponibles et celles à acquérir pour atteindre les objectifs.</li>
-                <li><strong>Les compétences techniques</strong> : Mettre en œuvre les moyens techniques et humains pour maximiser les résultats.</li>
-                <li><strong>Opportunités et risques</strong> : Repérer les opportunités de croissance tout en évitant les risques potentiels.</li>
-            </ul>
-        </div>
+        <ul class="centered-list">
+            <li><strong>Les objectifs financiers et commerciaux</strong> : Identifier les cibles et objectifs pour assurer une croissance durable.</li>
+            <li><strong>Les ressources nécessaires</strong> : Analyser les ressources disponibles et celles à acquérir pour atteindre les objectifs.</li>
+            <li><strong>Les compétences techniques</strong> : Mettre en œuvre les moyens techniques et humains pour maximiser les résultats.</li>
+            <li><strong>Opportunités et risques</strong> : Repérer les opportunités de croissance tout en évitant les risques potentiels.</li>
+        </ul>
         <p>
-            Notre équipe se concentre sur l'amélioration des performances de votre entreprise et propose un accompagnement stratégique avec la mise en place de tableaux de bord personnalisés. Grâce à des données précises et une analyse approfondie, nous aidons les entreprises à mieux comprendre leurs activités, à améliorer leur gestion et à renforcer leur position concurrentielle.
+            Notre équipe se concentre sur l'amélioration des performances de votre entreprise et propose un accompagnement stratégique avec la mise en place de tableaux de bord personnalisés.
         </p>
         <div class="puzzle-container">
             <img src="images/full_puzzle.png" alt="Puzzle complet">
         </div>
     </section>
 
-    <!-- Section 4 : Notre Tableau de Bord -->
+    <!-- Section 4 -->
     <section class="section">
         <h2>Notre Tableau de Bord : Vue complète sur votre entreprise</h2>
         <p>
-            Notre solution de tableau de bord offre une vue complète des performances de votre entreprise, avec des indicateurs clés couvrant autant de domaines que nécessaire. Par exemple : **indicateurs financiers**, **gestion des ressources humaines**, **processus internes**, **performances commerciales**, **suivi des projets**, etc.
+            Notre solution de tableau de bord offre une vue complète des performances de votre entreprise, avec des indicateurs clés couvrant autant de domaines que nécessaire.
         </p>
-        <p>
-            Dans la phase initiale, notre tableau de bord est développé en utilisant Excel, limitant ainsi les investissements. Le Chef d’entreprise peut ensuite choisir la mise en place d’un outil intégré et automatisé dans une phase ultérieure.
-        </p>
-
         <div class="dashboard-grid">
             <!-- Performance Financière -->
             <div class="dashboard-item">
                 <div class="dashboard-icon">💵</div>
                 <h3>Performance Financière</h3>
-                <ul class="left-align">
-                    <li>Suivez les performances financières en temps réel sur : le chiffre d'affaires, la rentabilité, les marges bénéficiaires, les retours sur investissements et les coûts clés.</li>
+                <ul class="centered-list">
+                    <li>Suivez les performances financières en temps réel sur : le chiffre d'affaires, la rentabilité, les marges bénéficiaires.</li>
                     <li>Identifiez les opportunités pour réduire les coûts et améliorer la profitabilité de l'entreprise.</li>
                 </ul>
             </div>
-            
             <!-- Performance Organisationnelle -->
             <div class="dashboard-item">
                 <div class="dashboard-icon">👥</div>
                 <h3>Performance Organisationnelle</h3>
-                <ul class="left-align">
+                <ul class="centered-list">
                     <li>Visualisez l'évolution de vos effectifs, le taux d'absentéisme, la répartition des compétences et les risques de backup.</li>
                     <li>Améliorez la gestion des talents grâce à une analyse approfondie des performances des équipes.</li>
                 </ul>
             </div>
-            
-            <!-- Performance Opérationnelle -->
-            <div class="dashboard-item">
-                <div class="dashboard-icon">🔄</div>
-                <h3>Performance Opérationnelle</h3>
-                <ul class="left-align">
-                    <li>Suivez vos processus internes : les flux de travail, les incidents, la conformité réglementaire (RGPD), et la stabilité de vos outils informatiques.</li>
-                    <li>Optimisez l'efficacité en identifiant les goulots d'étranglement et les opportunités d'amélioration.</li>
-                </ul>
-            </div>
-            
-            <!-- Performance Commerciale -->
-            <div class="dashboard-item">
-                <div class="dashboard-icon">📊</div>
-                <h3>Performance Commerciale</h3>
-                <ul class="left-align">
-                    <li>Analysez vos résultats commerciaux : volume des ventes, retour sur les campagnes de promotion, taux de conversion et satisfaction client.</li>
-                    <li>Ajustez votre stratégie marketing et vos campagnes pour maximiser vos revenus.</li>
-                </ul>
-            </div>
-    </div>
         </div>
     </section>
 
-    <!-- Section 5 : Méthodologie et Étapes du Projet -->
+    <!-- Section 5 -->
     <section class="section section-alt">
         <h2>Méthodologie et Étapes du Projet</h2>
         <div class="highlight-section">
             <h3>Voici comment nous accompagnons chaque projet :</h3>
-            <ul>
+            <ul class="centered-list">
                 <li><strong>Discussion initiale</strong> : Une première rencontre avec le Chef d’entreprise pour comprendre les besoins spécifiques.</li>
                 <li><strong>Audit complet</strong> : Un audit détaillé de l’entreprise sur une semaine maximum.</li>
                 <li><strong>Analyse des performances</strong> : Identification des forces, faiblesses et opportunités d'amélioration.</li>
@@ -355,7 +276,6 @@
         <p>Consultez nos <a href="tarification.html">options de tarification</a> ou découvrez <a href="team.html">qui nous sommes</a>.</p>
     </section>
 
-    <!-- Pied de page -->
     <footer>
         <p>&copy; 2024 COAD. Tous droits réservés.</p>
     </footer>
