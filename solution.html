@@ -112,6 +112,23 @@
         }
 
         /* Additional styling */
+        .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow: hidden; /* Prevents overflow from scaling */
+    }
+
+    /* Wrapper to keep the container centered and responsive */
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow: auto; /* Allow scaling to exceed screen size if needed */
+    }
+
         .diagram-container {
             padding: 20px;
             border: 2px solid #3498db;
