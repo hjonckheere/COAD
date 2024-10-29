@@ -8,149 +8,24 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Styles personnalisés pour la page de contact */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-
-        header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 1.5em;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-            letter-spacing: 1px;
-        }
-
-        header nav {
-            margin-top: 15px;
-        }
-
-        header nav a {
-            color: #fff;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 5px 10px;
-            transition: background-color 0.3s;
-        }
-
-        header nav a:hover {
-            background-color: #1abc9c;
-            border-radius: 5px;
-        }
-
-        /* Section principale */
-        .section {
-            padding: 3em;
-            text-align: center;
-            margin: 0 auto;
-            background-color: #fff;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-        }
-
-        .section h2 {
-            margin-bottom: 1.5em;
-            font-size: 2.5em;
-            color: #2c3e50;
-        }
-
-        .section p {
-            font-size: 1.3em;
-            margin: 0 auto;
-            max-width: 700px;
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-
-        /* Formulaire de contact */
-        .contact-form {
-            background: #fff;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            padding: 30px;
-            max-width: 600px;
-            margin: 2em auto;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form div {
-            margin-bottom: 1.5em;
-            text-align: left;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: border 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
-        }
-
-        .contact-form button {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 12px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #1abc9c;
-        }
-
-        /* Pied de page */
-        footer {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1.5em 0;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 1em;
-        }
-
-        /* Styles supplémentaires pour meilleure présentation */
-        .contact-form input.error,
-        .contact-form textarea.error {
-            border-color: #e74c3c;
-        }
-
-        .contact-form .error-message {
-            color: #e74c3c;
-            font-size: 0.9em;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
+        body, html { margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        header { background-color: #3498db; color: #fff; padding: 1.5em; text-align: center; }
+        header h1 { margin: 0; font-size: 2.8em; letter-spacing: 1px; }
+        header nav { margin-top: 15px; }
+        header nav a { color: #fff; margin: 0 20px; text-decoration: none; font-size: 1.2em; padding: 5px 10px; transition: background-color 0.3s; }
+        header nav a:hover { background-color: #1abc9c; border-radius: 5px; }
+        .section { padding: 3em; text-align: center; margin: 0 auto; background-color: #fff; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); max-width: 900px; }
+        .section h2 { margin-bottom: 1.5em; font-size: 2.5em; color: #2c3e50; }
+        .section p { font-size: 1.3em; margin: 0 auto; max-width: 700px; color: #7f8c8d; line-height: 1.6; }
+        .contact-form { background: #fff; border: 2px solid #ddd; border-radius: 8px; padding: 30px; max-width: 600px; margin: 2em auto; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+        .contact-form div { margin-bottom: 1.5em; text-align: left; }
+        .contact-form label { display: block; margin-bottom: 0.5em; font-weight: bold; color: #2c3e50; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; transition: border 0.3s ease, box-shadow 0.3s ease; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #3498db; outline: none; box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); }
+        .contact-form button { background-color: #3498db; color: #fff; border: none; border-radius: 5px; padding: 12px 20px; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s ease; }
+        .contact-form button:hover { background-color: #1abc9c; }
+        footer { background: #2c3e50; color: #fff; padding: 1.5em 0; text-align: center; }
+        footer p { margin: 0; font-size: 1em; }
     </style>
 </head>
 <body>
@@ -171,11 +46,13 @@
     <!-- Section de Contact -->
     <section class="section">
         <h2>Nous Contacter</h2>
-        <p>
-            Pour toute question ou demande de démonstration, n'hésitez pas à nous contacter via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.
-        </p>
+        <p>Pour toute question ou demande de démonstration, n'hésitez pas à nous contacter via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
         <div class="contact-form">
-            <form action="send_mail.php" method="post">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden">
+                    <label>Ne remplissez pas si vous êtes humain: <input name="bot-field" type="text"></label>
+                </p>
                 <div>
                     <label for="name">Nom :</label>
                     <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
