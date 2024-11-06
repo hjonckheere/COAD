@@ -38,6 +38,15 @@
             font-size: 1.2em;
         }
 
+        .btn-connexion {
+            background-color: #1abc9c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
         /* Section principale */
         .section {
             padding: 2em;
@@ -57,12 +66,18 @@
             max-width: 800px;
         }
 
-        /* Style de l'image du tableau de bord avec les bulles explicatives */
+        .section p + p {
+            margin-top: 1.5em;
+            border-top: 1px solid #ddd;
+            padding-top: 1.5em;
+        }
+
+        /* Image du tableau de bord avec les bulles explicatives */
         .dashboard-container {
             position: relative;
             text-align: center;
             margin-top: 2em;
-            max-width: 400px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -92,130 +107,68 @@
             background-color: #1abc9c;
         }
 
-        /* Ajout d'une flèche aux bulles */
-        .bubble:before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-        }
-
-        .bubble-1 {
-            top: 20%;
-            left: -160px;
-        }
-
-        .bubble-1:before {
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 10px;
-            border-color: transparent transparent transparent #2980b9;
-        }
-
-        .bubble-2 {
-            top: 20%;
-            right: -160px;
-        }
-
-        .bubble-2:before {
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 10px;
-            border-color: transparent transparent transparent #2980b9;
-        }
-
-        .bubble-3 {
-            bottom: 20%;
-            left: -160px;
-        }
-
-        .bubble-3:before {
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 10px;
-            border-color: transparent transparent transparent #2980b9;
-        }
-
-        .bubble-4 {
-            bottom: 20%;
-            right: -160px;
-        }
-
-        .bubble-4:before {
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 10px;
-            border-color: transparent transparent transparent #2980b9;
-        }
-
         .bubble a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
         }
 
-        /* Présentation des fonctionnalités sous forme de paragraphes avec image et description */
-        .feature {
+        /* Positionnement des bulles sur les bords extérieurs */
+        .bubble-1 {
+            top: 15%;
+            left: -180px; /* Placer à l'extérieur à gauche */
+        }
+
+        .bubble-2 {
+            top: 15%;
+            right: -180px; /* Placer à l'extérieur à droite */
+        }
+
+        .bubble-3 {
+            bottom: 15%;
+            left: -180px; /* Placer à l'extérieur à gauche */
+        }
+
+        .bubble-4 {
+            bottom: 15%;
+            right: -180px; /* Placer à l'extérieur à droite */
+        }
+
+        /* Styles pour les sections de tableau de bord */
+        .features {
             display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            padding: 15px;
-            border-radius: 8px;
-            background: #ecf0f1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+            gap: 30px;
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
-            background-color: #f7f9fa;
-        }
-
-        .feature img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
-
-        .feature-description {
-            max-width: 700px;
+        .feature {
+            width: calc(50% - 30px);
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            background: #fff;
             text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .feature h3 {
-            margin: 0;
             font-size: 1.8em;
             color: #3498db;
             margin-bottom: 10px;
         }
 
-        .feature-description p {
+        .feature p {
             font-size: 1.1em;
             color: #2c3e50;
+            margin-bottom: 15px;
         }
 
-        .feature hr {
-            border: none;
-            border-top: 2px solid #3498db;
-            margin: 15px 0;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1.5em 0;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 1em;
+        .feature a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -225,7 +178,6 @@
         <h1>Solution COAD</h1>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="consultant.html">Un consultant? Pourquoi?</a>
             <a href="solution.html">Notre Solution</a>
             <a href="expertises.html">Expertises</a>
             <a href="tarification.html">Tarification</a>
@@ -239,84 +191,71 @@
         <h2>Présentation de la Solution COAD</h2>
         <p>
             Notre équipe se concentre sur l'amélioration des performances de votre entreprise et propose un accompagnement stratégique avec la mise en place de tableaux de bord personnalisés. Grâce à des données précises et une analyse approfondie, nous aidons les entreprises à mieux comprendre leurs activités, à améliorer leur gestion et à renforcer leur position concurrentielle.
-            <br><br>
+        </p>
+        <p>
             Le tableau de bord est un outil de pilotage de l’entreprise qui vous permet d’obtenir une vue d’ensemble des activités quotidiennes et à plus long terme avec un suivi précis des indicateurs clés. Il vous donne des outils pour transformer vos données en actions performantes pour un rendement optimal.
-            <br><br>
+        </p>
+        <p>
             Dans une seconde phase, nous pouvons développer un tableau de bord intégré automatiquement à vos systèmes informatiques et vous accompagner dans le pilotage de projets d’amélioration de la performance de votre entreprise.
         </p>
     </section>
 
     <!-- Image du tableau de bord avec des bulles explicatives -->
     <div class="dashboard-container">
-        <img src="./images/dashboard.png" alt="Tableau de Bord avec Explications">
+        <img src="images/dashboard.png" alt="Tableau de Bord avec Explications">
         <div class="bubble bubble-1"><a href="#financier">Indicateur Financier</a></div>
         <div class="bubble bubble-2"><a href="#ventes">Suivi des Ventes</a></div>
         <div class="bubble bubble-3"><a href="#processus">Suivi des Processus</a></div>
         <div class="bubble bubble-4"><a href="#rh">Gestion des RH</a></div>
     </div>
 
-    <!-- Section des fonctionnalités (présentées sous forme de paragraphes avec image et description) -->
+    <!-- Section : Exemples des détails d’un tableau de bord -->
     <section class="section" id="fonctionnalites">
         <h2>Exemples des détails d’un tableau de bord</h2>
 
         <div class="features">
-            <!-- Fonctionnalité 1 -->
+            <!-- Fonctionnalité 1 : Indicateurs Financiers -->
             <div class="feature" id="financier">
-                <img src="./images/financier.png" alt="Indicateurs Financiers">
-                <div class="feature-description">
-                    <h3>Indicateurs Financiers</h3>
-                    <p>
-                        Suivez les performances économiques de votre entreprise avec des outils détaillés, incluant le chiffre d'affaires, la rentabilité nette,
-                        et les marges. Grâce à l'analyse des coûts et des opportunités, identifiez les leviers d'optimisation pour améliorer la profitabilité globale.
-                        En savoir plus sur <a href="solution.html#financier">Indicateurs Financiers</a>.
-                    </p>
-                </div>
+                <h3>Indicateurs Financiers</h3>
+                <p>
+                    Suivez les performances économiques de votre entreprise avec des outils détaillés, incluant le chiffre d'affaires, la rentabilité nette,
+                    et les marges. Grâce à l'analyse des coûts et des opportunités, identifiez les leviers d'optimisation pour améliorer la profitabilité globale.
+                </p>
+                <a href="solution.html#financier">En savoir plus sur Indicateurs Financiers</a>
             </div>
-            <hr> <!-- Séparateur -->
 
-            <!-- Fonctionnalité 2 -->
+            <!-- Fonctionnalité 2 : Suivi des Processus Internes -->
             <div class="feature" id="processus">
-                <img src="./images/processus.png" alt="Suivi des Processus Internes">
-                <div class="feature-description">
-                    <h3>Suivi des Processus Internes</h3>
-                    <p>
-                        Optimisez vos opérations avec une vue complète des processus internes. Mesurez la productivité, identifiez les goulots d'étranglement,
-                        et suivez les réclamations et incidents pour assurer une amélioration continue des performances opérationnelles.
-                        En savoir plus sur <a href="solution.html#processus">Suivi des Processus</a>.
-                    </p>
-                </div>
+                <h3>Suivi des Processus Internes</h3>
+                <p>
+                    Optimisez vos opérations avec une vue complète des processus internes. Mesurez la productivité, identifiez les goulots d'étranglement,
+                    et suivez les réclamations et incidents pour assurer une amélioration continue des performances opérationnelles.
+                </p>
+                <a href="solution.html#processus">En savoir plus sur Suivi des Processus</a>
             </div>
-            <hr> <!-- Séparateur -->
 
-            <!-- Fonctionnalité 3 -->
+            <!-- Fonctionnalité 3 : Gestion des Ressources Humaines -->
             <div class="feature" id="rh">
-                <img src="./images/hr.png" alt="Gestion des Ressources Humaines">
-                <div class="feature-description">
-                    <h3>Gestion des Ressources Humaines</h3>
-                    <p>
-                        Accédez à un tableau de bord complet pour suivre les effectifs, les absences, la répartition des compétences, et plus encore. Renforcez la
-                        productivité avec des outils RH qui facilitent la planification et la gestion des talents dans votre organisation.
-                        En savoir plus sur <a href="solution.html#rh">Gestion des RH</a>.
-                    </p>
-                </div>
+                <h3>Gestion des Ressources Humaines</h3>
+                <p>
+                    Accédez à un tableau de bord complet pour suivre les effectifs, les absences, la répartition des compétences, et plus encore. Renforcez la
+                    productivité avec des outils RH qui facilitent la planification et la gestion des talents dans votre organisation.
+                </p>
+                <a href="solution.html#rh">En savoir plus sur Gestion des RH</a>
             </div>
-            <hr> <!-- Séparateur -->
 
-            <!-- Fonctionnalité 4 -->
+            <!-- Fonctionnalité 4 : Performances Marketing & Ventes -->
             <div class="feature" id="ventes">
-                <img src="./images/marketing.png" alt="Performances Marketing & Ventes">
-                <div class="feature-description">
-                    <h3>Performances Marketing & Ventes</h3>
-                    <p>
-                        Analysez vos résultats marketing avec des indicateurs comme le taux de conversion et la satisfaction client. Suivez vos ventes en temps réel
-                        et ajustez vos campagnes pour maximiser les revenus et le retour sur investissement.
-                        En savoir plus sur <a href="solution.html#ventes">Performances Marketing & Ventes</a>.
-                    </p>
-                </div>
+                <h3>Performances Marketing & Ventes</h3>
+                <p>
+                    Analysez vos résultats marketing avec des indicateurs comme le taux de conversion et la satisfaction client. Suivez vos ventes en temps réel
+                    et ajustez vos campagnes pour maximiser les revenus et le retour sur investissement.
+                </p>
+                <a href="solution.html#ventes">En savoir plus sur Performances Marketing & Ventes</a>
             </div>
         </div>
 
-        <!-- Bouton vers la tarification -->
+        <!-- Lien vers la solution complète -->
         <p><a href="solution.html" class="btn-pricing">Voir notre solution</a></p>
     </section>
 
